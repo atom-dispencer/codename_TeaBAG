@@ -2,7 +2,7 @@
 testMode = 1
 waitMode = 1
 
-
+allAvailableActions = [N, S, E, W, ?]
 
 
 from random import randint
