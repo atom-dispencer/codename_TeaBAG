@@ -1,8 +1,7 @@
 class Tile:
-    def __init__(self, thisFound, whatsThis, yoAreHere):
+    def __init__(self, thisFound, whatsThis, amIHere):
         self.thisFound = thisFound
         self.whatsThis = whatsThis
-        self.yoAreHere = yoAreHere
         self.discovered = 0
         self.amIHere = 0
 
@@ -22,6 +21,6 @@ class Tile:
             return "|" + self.whatsThis
     def getLn3(self):
         if self.amIHere == 0:
-            return "|" + "           "
+            return "|" + "    ---    "
         else:
-            return "|" + self.yoAreHere
+            return "|" + "  >>YOU<<  "
