@@ -1,5 +1,5 @@
-#___________________codename_TeaBAG Alpha v1.0.1___________________
-
+#___________________codename_TeaBAG Alpha v1.0.2___________________
+gameName="codename_TeaBAG Alpha v1.0.2"
 #WARNING!!! TOGGLING TESTMODE ( 1 / 0 ) WILL HAVE A DRAMATIC EFFECT ON THE OUTPUT!!!
 testMode = 1
 
@@ -8,7 +8,11 @@ allAvailableActions = ["N", "S", "E", "W", "?", "QUIT", "HISTORY_LESSON", "I"]
 import time
 import tileHelp
 import setupHelp
+from random import randint
 
+keyLocation = randint(1,20)
+gotKey = 0
+print(keyLocation)
 inventory = ["A set of traveller's clothes"]
 
 Steve = ("The Evil Wizard Steve (O' hear His name and tremble)")
@@ -145,12 +149,28 @@ while notDead=="True":
     
     Reset()
     setMeHere()
-    
+
     setupHelp.printGrid(Grid)
     print(Grid[yourLocation].getDescription())
     yourLocation = Action(yourLocation)
+    if yourLocation == keyLocation:
+        print("What's this?")
+        print("A golden key!")
+        pickup=input("Do you want to get the key? (Y/N)")
+        if pickup == "Y":
+            print("You got the key!")
+            gotKey = 1
+        else:
+            print("You move on")
     
-
+    if yourLocation == 18 and gotKey == 1:
+        print("You reached the citadel! Congrats!\nUnfortunately I haven' programmed the battle with",Steve,"yet, but have a free win anyway!")
+        print("Thanks for playing",gameName,", brave adventurer...")
+        print("Currently that's the only name I have for it, but any suggestions would be welcome! :)")
+        print("In the words of James Donnovan Haliday (From Earnest Cline's 'Ready Player One')...")
+        print("'Thanks for playing my game...'")
+        time.sleep(20)
+        quit()
 
 
 
