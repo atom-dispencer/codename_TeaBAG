@@ -1,6 +1,7 @@
 import time
 import tileHelp
-
+def history():
+    print("This is history")
 def Wait1():
     time.sleep(1)
 def Wait2():
@@ -13,31 +14,21 @@ def OpenSpeech(Steve):
     Wait2()
     print("Welcome to the Forgotten Lands!")
     Wait2()
-    sName=input("What do they call you adventurer?")
-    print("Interesting... Greetings,",sName,", and welcome to the Forgotten Lands!")
+    sName=input("What do they call you adventurer?\n>>>")
+    if sName == "Eddles the Con":
+        print("Oh no! Not Eddles the Con! :0")
+    print("Interesting...")
     Wait2()
-    print("For some reason, the only way for you to interact with us on this side is through this new-fangled 'computer'.")
-    Wait2()
-    print("What's more, is that you can only use simple commands, such and N (to walk North) or GET to errrrr.... get something....")
-    Wait2()
-    print("Don't ask me why, but the Thing that put us all in here was too lazy/incompetant to care/ACTUALLY DO IT!!!!!!")
-    Wait1()
-    print("Sorry..... I just got a bit carried away...")
-    print("Anyway, ONWARDS TO GLORY!! (And cookies - Hey! I'm hungry! Deal with it!)")
-    Wait3()
-    print("-----")
-    print("-----")
-    print("-----")
-    print("-----")
-    print("-----")
-    print("-----")
-    print("-----")
-    print("Oh no.....(!) Some person has been captured by",Steve)
-    print("Seeing as you are meant to be a hero, you should probably go vanquish",Steve)
+    print("Greetings,",sName,", and welcome to the Forgotten Lands!")
     Wait5()
-    print("Well.... Go on!")
+    historyLesson = input("Do you wish to know more about the Forgotten Lands? (Y/N)\n>>>")
+    if historyLesson == "Y":
+        print("Now a brief history!")
+        history()
+    else:
+        print("Ok! Let's go! But remember, if you want to see the history later, just type HISTORY_LESSON.")
     Wait5()
-    print("Oh right, you probably want to see something.... ")
+    print("Now, onwards to adventure!")
     Wait2()
     return sName
 
@@ -53,8 +44,8 @@ def printGrid(Grid):
         i=i+5
     print("-------------------------------------------------------------")
 
-def buildGrid():    
-    Tile1 = tileHelp.Tile("     1     ", "  >TRACK<  ", "  >>YOU<<  ", "HAYO")
+def buildGrid():
+    Tile1 = tileHelp.Tile("     1     ", "  >TRACK<  ", "  >>YOU<<  ", "You are standing on a dirt path that continues South, to unknown lands, and East, towards far off woods and crumbling buildings...")
     Tile2 = tileHelp.Tile("     2     ", "  >RUINS<  ", "  >>YOU<<  ", "HAYO")
     Tile3 = tileHelp.Tile("     3     ", "  >WOODS<  ", "  >>YOU<<  ", "HAYO")
     Tile4 = tileHelp.Tile("     4     ", "  >FIELD<  ", "  >>YOU<<  ", "HAYO")

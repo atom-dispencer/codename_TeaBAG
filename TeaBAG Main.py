@@ -1,11 +1,15 @@
+#___________________codename_TeaBAG Alpha v1.0.1___________________
+
 #WARNING!!! TOGGLING TESTMODE ( 1 / 0 ) WILL HAVE A DRAMATIC EFFECT ON THE OUTPUT!!!
 testMode = 1
 
-allAvailableActions = ["N", "S", "E", "W", "?"]
+allAvailableActions = ["N", "S", "E", "W", "?", "QUIT", "HISTORY_LESSON", "I"]
 
 import time
 import tileHelp
 import setupHelp
+
+inventory = ["A set of traveller's clothes"]
 
 Steve = ("The Evil Wizard Steve (O' hear His name and tremble)")
 WestVirginia = ("Almost Heaven, West Virginia // Blue Ridge Mountains, Shenandoah River // Life is old there, older than the trees // Younger than the mountains, blowing like a breeze // Country roads, take me home // To the place I belong")
@@ -37,11 +41,31 @@ def Action(yourLocation):
     newLocation = 0
     haveAnAction = 0
     while haveAnAction < 1:
-        what2Do=input("What wantest thy to doeth?")
+        what2Do=input("What wantest thy to doeth?\n>>>")
 #        print(yourLocation)
         if what2Do in allAvailableActions:
             Reset()
-            if what2Do == 'N':
+            #START OF ACTIONS ----------------------------------------------------------------------------------------------------
+            if what2Do == "I":
+                print("You have the following items in your inventory:")
+                print(inventory)
+                print("")
+                print("When you GET items they will appear here!")
+                setupHelp.Wait1()
+                print("")
+            if what2Do == "HISTORY_LESSON":
+                setupHelp.history()
+                setupHelp.Wait3()
+            elif what2Do == "QUIT":
+                wantToQuit = input("Do you wish to quit? (type CONTINUE)\n>>>")
+                if wantToQuit == "CONTINUE":
+                    quit()
+                else:
+                    print("You continue onwards...")
+                    setupHelp.Wait1()
+                    print("")
+                    print("")
+            elif what2Do == 'N':
                 if yourLocation < 5:
                     return TheEdge()
                 newLocation = Move(what2Do, yourLocation)

@@ -4,7 +4,7 @@ class Tile:
         self.whatsThis = whatsThis
         self.discovered = 0
         self.amIHere = 0
-        self.description = "HAYO!"
+        self.description = description
         
     def __str__(self):
         return self.thisFound
